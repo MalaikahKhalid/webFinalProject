@@ -1,19 +1,16 @@
 let selectedSign = "";
-// var turnO = true; //To Track Player O's Turn
 
 const xBtn = document.querySelector("#xBtn");
 const oBtn = document.querySelector("#oBtn");
 const startBtn = document.querySelector("#startBtn");
 if (xBtn && oBtn && startBtn) {
 xBtn.addEventListener("click", () => {
-  // turnO = false; // Set Player X's turn
   selectedSign = "X";
   xBtn.classList.add("selected");
   oBtn.classList.remove("selected");
 });
 
 oBtn.addEventListener("click", () => {
-  // turnO = true; // Set Player O's turn
   selectedSign = "O";
   oBtn.classList.add("selected");
   xBtn.classList.remove("selected");
@@ -23,9 +20,8 @@ startBtn.addEventListener("click", () => {
   if (selectedSign === "") {
     alert("Please select a sign first!");
   } else {
-    // alert("Player 1 is " + selectedSign);
     localStorage.setItem("selectedSign", selectedSign);
-    window.location.href = "final.html"; // Redirect to the game page
+    window.location.href = "final.html"; 
   }
 });
 }
@@ -45,8 +41,6 @@ let msg = document.querySelector("#msg");
 
 let Sign = localStorage.getItem("selectedSign");
 let turnO = Sign === "O"; // If player selected "O", O starts
-
-// Now turnO is set correctly before the game starts
 
 let count = 0; //To Track Draw
 
@@ -132,11 +126,10 @@ const checkWinner = () => {
   }
 };
 
-// newBtn.addEventListener("click", resetGame);
+
 resetBtn.addEventListener("click", resetGame);
 if (newBtn) {
   newBtn.addEventListener("click", () => {
-    // Redirect to front page (sign selection)
     window.location.href = "front.html";
   });
 }
